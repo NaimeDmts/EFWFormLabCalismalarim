@@ -54,5 +54,22 @@ namespace KisiRehberProject.UI
             FillListView(adresService.GetAllActivesAndModifieldsKisiId(kisiId));
 
         }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvAdresler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvAdresler.SelectedItems.Count > 0)
+            {
+                string id = lvAdresler.SelectedItems[0].SubItems[0].Text;
+                adres = adresService.Get(Convert.ToInt32(id));
+                txtSehir.Text = adres.Sehir;
+                txtIlce.Text = adres.Ilce;
+                txtAdresDetay.Text = adres.AdresDetay;
+            }
+        }
     }
 }
