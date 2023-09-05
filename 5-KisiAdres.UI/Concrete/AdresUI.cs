@@ -13,11 +13,11 @@ namespace _5_KisiAdres.UI.Concrete
     public class AdresUI
     {
         private readonly BaseDal<Adres> _baseDal;
-        private readonly AppDbContext _appDbContext;
+        private readonly AppDbContext appDbContext;
         public AdresUI(AppDbContext appDbContext)
         {
-            _appDbContext = appDbContext;
-            _baseDal = new BaseDal<Adres>(_appDbContext);
+            appDbContext = appDbContext;
+            _baseDal = new BaseDal<Adres>(appDbContext);
         }
         public void Add(Adres entity)
         {
