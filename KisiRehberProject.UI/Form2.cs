@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KisiRehberProject.BLL.Services;
+using KisiRehberProject.DATA.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,45 @@ namespace KisiRehberProject.UI
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        public Form2(int kisiId)
         {
             InitializeComponent();
+            this.kisiId = kisiId;
+            adresService = new AdresService();
+            
+        }
+        int kisiId;
+        AdresService adresService;
+        Adres adres;
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            FillListView(adresService.GetAllActivesAndModifieldsKisiId(kisiId));
+        }
+        void FillListView(List<Adres>adresler)
+        {
+            lvAdresler.Items.Clear();
+            foreach (var adres in adresler)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = adres.Id.ToString();
+                lvi.SubItems.Add(adres.Sehir);
+                lvi.SubItems.Add(adres.Ilce);
+                lvi.SubItems.Add(adres.AdresDetay);
+                lvAdresler.Items.Add(lvi);
+            }
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            adres = new Adres();
+            adres.Sehir = txtSehir.Text;
+            adres.Ilce = txtIlce.Text;
+            adres.AdresDetay = txtAdresDetay.Text;
+            adres.KisiId = kisiId;
+            adresService.Add(adres);
+            FillListView(adresService.GetAllActivesAndModifieldsKisiId(kisiId));
+
         }
     }
 }

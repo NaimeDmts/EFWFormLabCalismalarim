@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KisiRehberProject.BLL\KisiRehberProject.BLL.csproj" />
+  </ItemGroup>
+
 </Project>

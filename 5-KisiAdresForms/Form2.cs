@@ -93,11 +93,6 @@ namespace _5_KisiAdresForms
             {
 
 
-                string id = lvAdresler.SelectedItems[0].SubItems[0].Text;
-                adres= context.Adreses.FirstOrDefault(x => x.Id == Convert.ToInt32(id));
-                txtSehir.Text = adres.Sehir;
-                txtIlce.Text = adres.Ilce;
-                txtAdresDetay.Text =adres.AdresDetay;
 
 
             }
