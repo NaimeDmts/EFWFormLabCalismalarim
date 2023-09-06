@@ -1,6 +1,7 @@
 ﻿using KisiRehberProject.DAL.Contexts;
 using KisiRehberProject.DATA.Entities;
 using KisiRehberProject.DATA.Enums;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,8 +44,10 @@ namespace KisiRehberProject.DAL.Concrete
         }
         public List<Kisi> GetAllActivesAndModifields(Expression<Func<Kisi,bool>>expression)
         {
-
+            //dbContext.Kisis.Include(x=>x.Adresler).Where(expression).ToList();
+            //dbContext.Kisis.Include(x=>x.Adresler).ThenInclude(x=>x.AdresDetay içerisinden bir tabloya ulaşmak için).Where(expression).ToList();
             return dbContext.Kisis.Where(expression).ToList();
+
         }
     }
 }

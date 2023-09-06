@@ -28,99 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtAra = new TextBox();
-            lvAdresler = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            lboxKisiler = new ListBox();
-            label2 = new Label();
-            label1 = new Label();
-            SuspendLayout();
+            this.txtAra = new System.Windows.Forms.TextBox();
+            this.lvAdresler = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.lboxKisiler = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
             // txtAra
             // 
-            txtAra.Location = new Point(340, 89);
-            txtAra.Margin = new Padding(2);
-            txtAra.Name = "txtAra";
-            txtAra.Size = new Size(140, 23);
-            txtAra.TabIndex = 10;
-            txtAra.TextChanged += txtAra_TextChanged;
+            this.txtAra.Location = new System.Drawing.Point(340, 89);
+            this.txtAra.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAra.Name = "txtAra";
+            this.txtAra.Size = new System.Drawing.Size(140, 23);
+            this.txtAra.TabIndex = 10;
             // 
             // lvAdresler
             // 
-            lvAdresler.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            lvAdresler.FullRowSelect = true;
-            lvAdresler.GridLines = true;
-            lvAdresler.Location = new Point(289, 117);
-            lvAdresler.Margin = new Padding(2);
-            lvAdresler.Name = "lvAdresler";
-            lvAdresler.Size = new Size(426, 244);
-            lvAdresler.TabIndex = 12;
-            lvAdresler.UseCompatibleStateImageBehavior = false;
-            lvAdresler.View = View.Details;
+            this.lvAdresler.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lvAdresler.FullRowSelect = true;
+            this.lvAdresler.GridLines = true;
+            this.lvAdresler.Location = new System.Drawing.Point(289, 117);
+            this.lvAdresler.Margin = new System.Windows.Forms.Padding(2);
+            this.lvAdresler.Name = "lvAdresler";
+            this.lvAdresler.Size = new System.Drawing.Size(426, 244);
+            this.lvAdresler.TabIndex = 12;
+            this.lvAdresler.UseCompatibleStateImageBehavior = false;
+            this.lvAdresler.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            columnHeader1.Text = "Şehir";
-            columnHeader1.Width = 160;
+            this.columnHeader1.Text = "Şehir";
+            this.columnHeader1.Width = 160;
             // 
             // columnHeader2
             // 
-            columnHeader2.Text = "İlçe";
-            columnHeader2.Width = 160;
+            this.columnHeader2.Text = "İlçe";
+            this.columnHeader2.Width = 160;
             // 
             // columnHeader3
             // 
-            columnHeader3.Text = "Adres Detay";
-            columnHeader3.Width = 400;
+            this.columnHeader3.Text = "Adres Detay";
+            this.columnHeader3.Width = 400;
             // 
             // lboxKisiler
             // 
-            lboxKisiler.FormattingEnabled = true;
-            lboxKisiler.ItemHeight = 15;
-            lboxKisiler.Location = new Point(85, 117);
-            lboxKisiler.Margin = new Padding(2);
-            lboxKisiler.Name = "lboxKisiler";
-            lboxKisiler.Size = new Size(178, 244);
-            lboxKisiler.TabIndex = 11;
-            lboxKisiler.SelectedIndexChanged += lboxKisiler_SelectedIndexChanged;
+            this.lboxKisiler.FormattingEnabled = true;
+            this.lboxKisiler.ItemHeight = 15;
+            this.lboxKisiler.Location = new System.Drawing.Point(85, 117);
+            this.lboxKisiler.Margin = new System.Windows.Forms.Padding(2);
+            this.lboxKisiler.Name = "lboxKisiler";
+            this.lboxKisiler.Size = new System.Drawing.Size(178, 244);
+            this.lboxKisiler.TabIndex = 11;
+            this.lboxKisiler.SelectedIndexChanged += new System.EventHandler(this.lboxKisiler_SelectedIndexChanged_1);
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(286, 89);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(34, 15);
-            label2.TabIndex = 14;
-            label2.Text = "Ara : ";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(286, 89);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Ara : ";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(85, 89);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 15);
-            label1.TabIndex = 13;
-            label1.Text = "Yönetici Ekranı";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Yönetici Ekranı";
             // 
             // Form3
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtAra);
-            Controls.Add(lvAdresler);
-            Controls.Add(lboxKisiler);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Name = "Form3";
-            Text = "Form3";
-            Load += Form3_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtAra);
+            this.Controls.Add(this.lvAdresler);
+            this.Controls.Add(this.lboxKisiler);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "Form3";
+            this.Text = "Form3";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

@@ -72,5 +72,10 @@ namespace _5_KisiAdresForms
                 lvAdresler.Items.Add(lvi);
             }
         }
+
+        private void lboxKisiler_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

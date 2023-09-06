@@ -219,6 +219,7 @@
             this.linkYoneticiEkrani.TabIndex = 16;
             this.linkYoneticiEkrani.TabStop = true;
             this.linkYoneticiEkrani.Text = "Yönetici Ekranı";
+            this.linkYoneticiEkrani.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkYoneticiEkrani_LinkClicked);
             // 
             // txtKisiAra
             // 
@@ -227,6 +228,7 @@
             this.txtKisiAra.Name = "txtKisiAra";
             this.txtKisiAra.Size = new System.Drawing.Size(145, 23);
             this.txtKisiAra.TabIndex = 15;
+            this.txtKisiAra.TextChanged += new System.EventHandler(this.txtKisiAra_TextChanged);
             // 
             // label4
             // 

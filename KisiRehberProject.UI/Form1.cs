@@ -1,5 +1,6 @@
 using KisiRehberProject.BLL.Services;
 using KisiRehberProject.DATA.Entities;
+using KisiRehberProject.UI.Utilities;
 using System.Windows.Forms.Design;
 
 namespace KisiRehberProject.UI
@@ -12,6 +13,7 @@ namespace KisiRehberProject.UI
             kisiService = new KisiService();
         }
         Kisi kisi;
+      
         KisiService kisiService;
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -42,6 +44,7 @@ namespace KisiRehberProject.UI
             kisi.Telefon = mtxtTelefon.Text;
             kisiService.Add(kisi);
             FillListView(kisiService.GetAllActivesAndModifields());
+            Helper.ClearControls(this.Controls);
         }
 
         private void lvKisiler_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,17 +62,12 @@ namespace KisiRehberProject.UI
             else
             {
                 ButtonSet(true);
-                Temizle();
+                Helper.ClearControls(this.Controls);
                 kisi = null;
                   
             }
         }
-        void Temizle()
-        {
-            txtAd.Clear();
-            txtSoyad.Clear();
-            mtxtTelefon.Clear();
-        }
+       
         void ButtonSet(bool set)
         {
             btnKaydet.Enabled = set;
@@ -86,7 +84,7 @@ namespace KisiRehberProject.UI
                 kisi.Telefon = mtxtTelefon.Text;
                 kisiService.Update(kisi);
                 FillListView(kisiService.GetAllActivesAndModifields());
-                Temizle();
+                Helper.ClearControls(this.Controls);
                 kisi = null;
 
             }
@@ -100,7 +98,7 @@ namespace KisiRehberProject.UI
                 kisiService.Delete(kisi);
                 FillListView(kisiService.GetAllActivesAndModifields());
                 ButtonSet(true);
-                Temizle();
+                Helper.ClearControls(this.Controls);
 
             }
         
@@ -116,6 +114,23 @@ namespace KisiRehberProject.UI
                 this.Show();
 
             }
+        }
+
+        private void linkYoneticiEkrani_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+            this.Show();
+
+        }
+
+        private void txtKisiAra_TextChanged(object sender, EventArgs e)
+        {
+            var kisiara = txtKisiAra.Text.Trim();
+            List<Kisi> kisis = kisiService.GetAllActivesAndModifields();
+           List<Kisi> fielterList = kisis.Where(x=>x.Ad.Contains(kisiara)||x.Soyad.Contains(kisiara)).ToList();
+            FillListView(fielterList);
         }
     }
 }

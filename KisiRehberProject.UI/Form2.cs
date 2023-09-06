@@ -1,5 +1,6 @@
 ﻿using KisiRehberProject.BLL.Services;
 using KisiRehberProject.DATA.Entities;
+using KisiRehberProject.UI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace KisiRehberProject.UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            ButtonSet(true);
             FillListView(adresService.GetAllActivesAndModifieldsKisiId(kisiId));
         }
         void FillListView(List<Adres>adresler)
@@ -52,11 +54,22 @@ namespace KisiRehberProject.UI
             adres.KisiId = kisiId;
             adresService.Add(adres);
             FillListView(adresService.GetAllActivesAndModifieldsKisiId(kisiId));
+            ButtonSet(true);
 
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
+            if (adres !=null)
+            {
+                adres.Sehir = txtSehir.Text;
+                adres.Ilce = txtIlce.Text;
+                adres.AdresDetay = txtAdresDetay.Text;
+                adresService.Update(adres);
+                FillListView(adresService.GetAllActivesAndModifieldsKisiId(kisiId));
+                ButtonSet(true);
+                Helper.ClearControls(this.Controls);
+            }
 
         }
 
@@ -64,12 +77,25 @@ namespace KisiRehberProject.UI
         {
             if (lvAdresler.SelectedItems.Count > 0)
             {
-                string id = lvAdresler.SelectedItems[0].SubItems[0].Text;
-                adres = adresService.Get(Convert.ToInt32(id));
+                int id = Convert.ToInt32(lvAdresler.SelectedItems[0].SubItems[0].Text);
+                adres = adresService.Get(id);
                 txtSehir.Text = adres.Sehir;
                 txtIlce.Text = adres.Ilce;
                 txtAdresDetay.Text = adres.AdresDetay;
+                ButtonSet(false);
             }
+            else
+            {
+                ButtonSet(true);
+                Helper.ClearControls(this.Controls);
+                adres = null;
+            }
+        }
+        private void ButtonSet(bool set)
+        {
+            btnKaydet.Enabled = set;
+            btnGuncelle.Enabled = !set;
+            btnSil.Enabled=!set;
         }
     }
 }
