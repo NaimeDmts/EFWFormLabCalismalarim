@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KisiNot.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230906102401_intialCatalog")]
+    [Migration("20230907065522_intialCatalog")]
     partial class intialCatalog
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,19 @@ namespace KisiNot.Repository.Migrations
                         .IsUnique();
 
                     b.ToTable("Kullanicis");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Ad = "Naime",
+                            CreateDate = new DateTime(2023, 9, 7, 9, 55, 22, 28, DateTimeKind.Local).AddTicks(9454),
+                            Sifre = "1*Naime",
+                            Soyad = "Damataşı",
+                            Statu = 0,
+                            Tip = 1,
+                            kullaniciAdi = "ndmts"
+                        });
                 });
 
             modelBuilder.Entity("KisiNot.DATA.Entities.Not", b =>

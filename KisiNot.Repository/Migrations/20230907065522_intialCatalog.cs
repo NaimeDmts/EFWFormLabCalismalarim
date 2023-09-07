@@ -20,10 +20,10 @@ namespace KisiNot.Repository.Migrations
                     kullaniciAdi = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Sifre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tip = table.Column<int>(type: "int", nullable: false),
+                    Statu = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Statu = table.Column<int>(type: "int", nullable: false)
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,10 +39,10 @@ namespace KisiNot.Repository.Migrations
                     Baslik = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NotIcerigi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KullaniciId = table.Column<int>(type: "int", nullable: false),
+                    Statu = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Statu = table.Column<int>(type: "int", nullable: false)
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -54,6 +54,11 @@ namespace KisiNot.Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Kullanicis",
+                columns: new[] { "Id", "Ad", "CreateDate", "DeleteDate", "Sifre", "Soyad", "Statu", "Tip", "UpdateDate", "kullaniciAdi" },
+                values: new object[] { 1, "Naime", new DateTime(2023, 9, 7, 9, 55, 22, 28, DateTimeKind.Local).AddTicks(9454), null, "1*Naime", "Damataşı", 0, 1, null, "ndmts" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Kullanicis_kullaniciAdi",

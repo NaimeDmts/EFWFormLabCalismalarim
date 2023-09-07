@@ -4,14 +4,16 @@ using KisiNot.DATA.Enums;
 using KisiNot.Repository.Abstractions;
 using KisiNot.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KisiNot.Repository
+namespace KisiNot.Repository.Concrete
 {
     public class BaseRepo<T> : IBaseReo<T> where T : BaseClass
     {
@@ -37,18 +39,19 @@ namespace KisiNot.Repository
         public void Delete(T item)
         {
             _context.SaveChanges();
-
         }
+
+      
 
         public T GetDefault(Expression<Func<T, bool>> expression)
         {
-            
-            return _table.Where(x=>x.Statu != Statu.Deleted).FirstOrDefault(expression);
+
+            return _table.Where(x => x.Statu != Statu.Deleted).FirstOrDefault(expression);
         }
 
         public T GetDefaultById(int id)
         {
-            return _table.Where(x => x.Statu != Statu.Deleted).FirstOrDefault(x=>x.Id==id);
+            return _table.Where(x => x.Statu != Statu.Deleted).FirstOrDefault(x => x.Id == id);
         }
 
         public IList<T> GetDefaults(Expression<Func<T, bool>> expression)

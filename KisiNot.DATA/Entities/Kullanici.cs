@@ -12,13 +12,14 @@ namespace KisiNot.DATA.Entities
     {
         public Kullanici()
         {
-            base.Statu = Statu.Pasive;
+            
         }
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public string kullaniciAdi { get; set; }
         public string Sifre { get; set; }
-        public IList<Not> Nots { get; set; }
+        public virtual IList<Not> Nots { get; set; }
         public Tip Tip { get; set; } = Tip.kullanici;
+        public override Statu Statu { get; set; } = Statu.Pasive;
     }
 }

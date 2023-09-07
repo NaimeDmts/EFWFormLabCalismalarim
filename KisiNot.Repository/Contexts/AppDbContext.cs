@@ -1,4 +1,5 @@
 ﻿using KisiNot.DATA.Entities;
+using KisiNot.DATA.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,25 @@ namespace KisiNot.Repository.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseLazyLoadingProxies();
             optionsBuilder.UseSqlServer("Server=KDK-403-YZ-PC14;Database=KisiNotDB;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Kullanici>().HasIndex(x => x.kullaniciAdi).IsUnique();
             modelBuilder.Entity<Kullanici>().HasMany(x => x.Nots).WithOne(x => x.Kullanici).HasForeignKey(x => x.KullaniciId);
+
+            modelBuilder.Entity<Kullanici>().HasData(
+                new Kullanici
+                {
+                    Id= 1,
+                    Ad = "Naime",
+                    Soyad = "Damataşı",
+                    kullaniciAdi = "ndmts",
+                    Sifre = "1*Naime",
+                    Statu = Statu.Active,
+                    Tip = Tip.admin
+                });
         }
     }
 }

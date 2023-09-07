@@ -13,7 +13,7 @@ namespace KisiNot.DATA.Abstractions
          public DateTime CreateDate { get; set; } =  DateTime.Now;
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
-        public Statu Statu { get; set; } = Statu.Active;
+        public abstract Statu Statu { get; set; }
 
     }
 }

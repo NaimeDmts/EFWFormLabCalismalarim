@@ -19,5 +19,6 @@ namespace KisiNot.Repository.Abstractions
             T GetDefaultById(int id);
             IList<T> GetDefaults(Expression<Func<T, bool>> expression);
 
+
     }
 }
