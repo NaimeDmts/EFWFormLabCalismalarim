@@ -43,7 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KisiNot.Repository", "KisiN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KisiNot.BLL", "KisiNot.BLL\KisiNot.BLL.csproj", "{E36269EE-C37C-4E95-86D0-62EE6A0BF37B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KisiNot.UI", "KisiNot.UI\KisiNot.UI.csproj", "{CE684894-7BB9-4896-ACC3-175C1AD8E598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KisiNot.UI", "KisiNot.UI\KisiNot.UI.csproj", "{CE684894-7BB9-4896-ACC3-175C1AD8E598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteProject", "NoteProject\NoteProject.csproj", "{82663DF2-D252-4298-A3D1-71D2F27CC431}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{CE684894-7BB9-4896-ACC3-175C1AD8E598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE684894-7BB9-4896-ACC3-175C1AD8E598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE684894-7BB9-4896-ACC3-175C1AD8E598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82663DF2-D252-4298-A3D1-71D2F27CC431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82663DF2-D252-4298-A3D1-71D2F27CC431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82663DF2-D252-4298-A3D1-71D2F27CC431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82663DF2-D252-4298-A3D1-71D2F27CC431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
